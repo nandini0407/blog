@@ -43,3 +43,8 @@ def post_update(request, p_id):
         # prveious data from the record will still be the same, hence we can directly save it
         post.save()
         return redirect('post_detail', p_id=post.pk)
+
+def post_destroy(request, p_id):
+    post = get_object_or_404(Post, pk=p_id)
+    post.delete()
+    return redirect('post_list')

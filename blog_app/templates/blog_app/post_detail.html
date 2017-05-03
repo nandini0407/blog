@@ -2,7 +2,8 @@
 {% extends 'blog_app/base.html' %}
 
 {% block content %}
-<a class="btn btn-default" href="{% url 'post_edit' p_id=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+  <a href="{% url 'post_edit' p_id=post.pk %}">Edit</span></a>
+  <a href="{% url 'post_destroy' p_id=post.pk %}">Delete</a>
   <h1>{{ post.title }}</h1>
   <div class="post-body">
     {{ post.text|linebreaksbr }}
