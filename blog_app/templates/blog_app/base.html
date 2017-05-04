@@ -13,9 +13,17 @@
   <body>
     <div class="page-header">
       {% if user.is_authenticated %}
+        <h4>Hello {{ user.username }}</h4>
+        <a href="{% url 'logout' %}">Logout</a>
         <a href="{% url 'post_new' %}" class="new-post">Create New Post</a>
+        <br>
+        <a href="{% url 'post_draft_list' %}">My Drafts</a>
+      {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <br>
+        <a href="{% url 'register' %}">Sign Up</a>
       {% endif %}
-      <h1><a href="/">Django Girls Blog</a></h1>
+      <h1><a href="/posts">Django Girls Blog</a></h1>
     </div>
     <ul>
       {% block content %}

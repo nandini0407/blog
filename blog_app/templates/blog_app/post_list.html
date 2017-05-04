@@ -3,7 +3,9 @@
 {% block content %}
   <ul>
     {% for post in posts %}
-      <p>published: {{ post.published_date }}</p>
+      {% if post.published_at %}
+        <p>published: {{ post.published_date }}</p>
+      {% endif %}
       <h1><a href="{% url 'post_detail' p_id=post.pk %}">{{ post.title }}</a></h1>
       <p>{{ post.text|linebreaksbr }}</p>
     {% endfor %}
